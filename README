@@ -17,3 +17,5 @@ applies XSL transformation to Case.workflow-meta.xml and writes to result.txt fi
 where parseWorkflows.xslt is the XSL transfomation that will convert the workflow XML into a 
 tab-separated file that can be pasted into a spreadsheet 
 (the file has separate sections for rules, field updates and alerts)
+
+ATTENTION:  the source XML must NOT have xmlns entry at the root because it is a pain to deal with it
