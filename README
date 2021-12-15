@@ -1,3 +1,5 @@
+            transformFileWithRegex.js
+
 USAGE:  node ./transformFileWithRegex.js sourceFile targetFile regexFile
 applies regex to sourceFile and writes to targetFile
 where regexFile is a text file with a regex on one line and the regex replacement on the next line
@@ -7,3 +9,10 @@ use blank lines to separate each regex pair
 EXAMPLE:  node ./transformFileWithRegex.js PBSourceXML.txt target.txt PBFlowExtractToTextRegex.txt
 all regex substitutions in PBFlowExtractToTextRegex.txt will be applied to PBSourceXML.txt and 
 the result written to target.txt
+
+            parseWorkflows.xslt
+
+USAGE:  xsltproc -o result.txt parseWorkflows.xslt Case.workflow-meta.xml
+applies XSL transformation to Case.workflow-meta.xml and writes to result.txt file
+where parseWorkflows.xslt is the XSL transfomation that will convert the workflow XML into a 
+tab-separated file that can be pasted into a spreadsheet
