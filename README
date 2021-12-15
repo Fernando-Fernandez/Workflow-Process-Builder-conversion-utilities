@@ -1,8 +1,8 @@
             transformFileWithRegex.js
 
 USAGE:  node ./transformFileWithRegex.js sourceFile targetFile regexFile
-applies regex to sourceFile and writes to targetFile
-where regexFile is a text file with a regex on one line and the regex replacement on the next line
+applies regex substitutions to sourceFile and writes to targetFile
+where regexFile is a text file with a regex on one line and the corresponding regex replacement on the next line
 if the next line is blank, the regex is replaced with the empty string
 use blank lines to separate each regex pair
 
@@ -15,4 +15,5 @@ the result written to target.txt
 USAGE:  xsltproc -o result.txt parseWorkflows.xslt Case.workflow-meta.xml
 applies XSL transformation to Case.workflow-meta.xml and writes to result.txt file
 where parseWorkflows.xslt is the XSL transfomation that will convert the workflow XML into a 
-tab-separated file that can be pasted into a spreadsheet
+tab-separated file that can be pasted into a spreadsheet 
+(the file has separate sections for rules, field updates and alerts)
