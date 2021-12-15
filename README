@@ -1,0 +1,9 @@
+USAGE:  node ./transformFileWithRegex.js sourceFile targetFile regexFile
+applies regex to sourceFile and writes to targetFile
+where regexFile is a text file with a regex on one line and the regex replacement on the next line
+if the next line is blank, the regex is replaced with the empty string
+use blank lines to separate each regex pair
+
+EXAMPLE:  node ./transformFileWithRegex.js PBSourceXML.txt target.txt PBFlowExtractToTextRegex.txt
+all regex substitutions in PBFlowExtractToTextRegex.txt will be applied to PBSourceXML.txt and 
+the result written to target.txt
