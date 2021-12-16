@@ -15,20 +15,30 @@ FullName	Active	triggerType	booleanFilter	criteriaItems	actions	timeTriggers	tim
 	<xsl:apply-templates select="booleanFilter" /> 
 	<xsl:value-of select="formula" />
 	<xsl:for-each select="criteriaItems" > 
-		<xsl:value-of select="concat( field, ' ', operation, ' ', value, ' ' )" /> 
+		<xsl:if test="position()>1">
+			<xsl:text> | </xsl:text>
+		</xsl:if> 
+		<xsl:value-of select="concat( field, ' ', operation, ' ', value )" /> 
 	</xsl:for-each> 
 	<xsl:text>&#x9;</xsl:text> 
 	<xsl:if test="not(actions)" >
 		<xsl:text>&#x9;</xsl:text>
 	</xsl:if> 
 	<xsl:for-each select="actions" > 
-		<xsl:value-of select="concat( name, ' (', type, ') ' )" /> 
+		<xsl:if test="position()>1">
+			<xsl:text> | </xsl:text>
+		</xsl:if> 
+		<xsl:value-of select="concat( name, ' (', type, ')' )" /> 
 	</xsl:for-each>
+	<xsl:text>&#x9;</xsl:text> 
 	<xsl:for-each select="workflowTimeTriggers" > 
 		<xsl:value-of select="concat( offsetFromField, ' ', timeLength, ' ', workflowTimeTriggerUnit, ' ' )" /> 
 		<xsl:text>&#x9;</xsl:text> 
 		<xsl:for-each select="actions" > 
-			<xsl:value-of select="concat( name, ' (', type, ') ' )" /> 
+			<xsl:if test="position()>1">
+				<xsl:text> | </xsl:text>
+			</xsl:if> 
+			<xsl:value-of select="concat( name, ' (', type, ')' )" /> 
 		</xsl:for-each> 
 	</xsl:for-each> 
 	<xsl:text>&#xA;</xsl:text>
@@ -44,7 +54,7 @@ FullName	Template	SenderType	SenderAddress	Recipients	CCTo
 	<xsl:apply-templates select="senderAddress" /> 
 	<xsl:for-each select="recipients" > 
 		<xsl:if test="position()>1">
-			<xsl:text>,</xsl:text>
+			<xsl:text>, </xsl:text>
 		</xsl:if> 
 		<xsl:if test="not(recipient) and not(field)">
 			<xsl:value-of select="type" />
